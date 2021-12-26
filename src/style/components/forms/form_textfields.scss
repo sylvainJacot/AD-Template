@@ -1,0 +1,21 @@
+//============= Forms: TextFields // Inputs =============
+//==========================================
+
+@mixin form_textFields-input {
+    background-color: $col_neutral-white;
+    border: 1px solid $col_primary-60;
+    box-shadow: none;
+    margin-bottom: $formFields_space;
+
+    &[aria-invalid='true'] {
+        border-color: $col_semantic-error !important;
+        border-width: 2px !important;
+   }
+}
+
+//============= Forms: TextFields // Inputs =============
+//==========================================
+@mixin form_textFields-textarea {
+    @include form_textFields-input;
+    margin-bottom: $formFields_space;
+}

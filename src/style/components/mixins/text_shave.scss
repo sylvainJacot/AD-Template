@@ -1,0 +1,7 @@
+@mixin text-shave($textlines:3) {
+    position: relative;
+    display: -webkit-box;   
+    -webkit-line-clamp: $textlines;   
+    -webkit-box-orient: vertical;     
+    overflow: hidden;
+  }

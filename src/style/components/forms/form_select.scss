@@ -1,0 +1,47 @@
+.frm_form_field {
+    .select-wrapper {
+        position: relative;
+        &:after {
+            position: absolute;
+            display: block;
+            content: "";
+            width: 1rem;
+            height: 1rem;
+            background: url("../assets/icones/arrow.svg") center center no-repeat;
+            background-size: contain;
+            top: 50%;
+            right:  $formFields_paddingX;
+            transform: translateY(calc(-50% - (#{$formFields_space} / 2 ))) rotate(0deg);
+            z-index: 99999;
+            @include transition_common-close;
+            transform-origin: center;
+        }
+        select {
+
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+            option {
+
+            }
+
+
+            /* IE11 hide native button  */
+            &::-ms-expand {
+                display: none;
+            }
+        }
+    }
+
+    &:hover>*,
+    &:focus-within>* {
+      
+        &:after {
+            transform: translateY(calc(-50% - (#{$formFields_space} / 2 ))) rotate(90deg);
+            @include transition_common-open(0.2s);
+        }
+    }
+
+
+}

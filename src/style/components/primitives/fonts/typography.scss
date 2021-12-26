@@ -1,0 +1,135 @@
+@import "./fonts.scss";
+
+
+//=================================================================
+//================================================================= 
+//============= Forms: Typography // FLEXIBLE CONTENT =============
+//=================================================================
+//=================================================================
+
+//========= Introduction
+
+@mixin typo_flexible-introduction {
+    @include Roboto-medium;
+    font-size: 2rem;
+    color: $col_primary;
+}
+
+
+//========= Heading 1
+
+@mixin typo_flexible-heading1 {
+    @include Roboto-medium;
+    font-size: 3rem;
+    color: $col_primary;
+}
+
+
+//========= Heading 2
+
+@mixin typo_flexible-heading2 {
+    @include Roboto-medium;
+    font-size: 2rem;
+    color: $col_primary;
+}
+
+
+//========= Heading 3
+
+@mixin typo_flexible-heading3 {
+    @include Roboto-medium;
+    font-size: 2rem;
+    color: $col_primary-60;
+}
+
+
+//========= Paragraph 
+
+@mixin typo_flexible-paragraph {
+    @include Roboto;
+    font-size: 1.5rem;
+    color: $col_primary;
+}
+
+
+//========= Paragraph bold
+
+@mixin typo_flexible-paragraphbold{
+    @include typo_flexible-paragraph;
+    @include Roboto-medium;
+}
+
+
+//========= Ordered list items
+
+@mixin typo_flexible-orderedlist-item{
+    @include typo_flexible-paragraph;
+}
+
+
+//========= Unordered list items
+
+@mixin typo_flexible-unorderedlist-item{
+    @include typo_flexible-paragraph;
+}
+
+
+//========= Link
+
+@mixin typo_flexible-link{
+    @include typo_flexible-paragraph;
+    color: $col_secondary;
+}
+
+//=================================================================
+//=================================================================
+//============= Forms: Typography // FORMS ========================
+//=================================================================
+//=================================================================
+
+//========= Default
+
+@mixin typo_forms-default {
+    @include Roboto;
+    font-size: 1.5rem;
+    color: $col_primary;
+    line-height: 2rem;
+}
+
+
+//========= SubTitle
+
+@mixin typo_forms-subtitle {
+    @include Roboto-medium;
+    font-size: 2rem;
+    color: $col_primary;
+    line-height: 2rem;
+}
+
+
+//========= Top Text
+
+@mixin typo_forms-toptext {
+    @include Roboto-medium;
+    font-size: 1.25rem;
+    color: $col_primary;
+    line-height: 2rem;
+}
+
+
+//========= Sub Text
+
+@mixin typo_forms-subtext {
+    @include Roboto;
+    font-size: 1rem;
+    color: $col_primary;
+    line-height: 2rem;
+}
+
+//========= Form message
+
+@mixin typo_forms-messages {
+    @include Roboto;
+    font-size: 1rem;
+    line-height: 2rem;
+}

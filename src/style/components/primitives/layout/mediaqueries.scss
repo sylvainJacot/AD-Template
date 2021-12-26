@@ -1,0 +1,18 @@
+@mixin tablet {
+    @media (min-width: 768px) { @content; }
+}
+@mixin laptop {
+    @media(hover: hover) and (min-width: 1025px) { @content; }
+}
+@mixin desktop {
+    @media(hover: hover) and (min-width: 1200px) { @content; }
+}
+@mixin hover {
+    @media(hover: hover) and (pointer: fine) { @content; }
+}
+
+@mixin firefox {
+    @-moz-document url-prefix() {
+        @content;
+    }
+}

@@ -1,0 +1,68 @@
+$form_checkboxes-size-container : 3rem;
+$form_checkboxes-size-check : 1.5rem;
+
+$form_checkboxes-margins : calc(#{$form_checkboxes-size-container} - #{$form_checkboxes-size-check});
+
+// Il jouer avec la valeur du diviseur pour bien centrer la checkbox
+$fcm_diviseur : 3;
+
+$form_checkboxes-margin : calc(#{$form_checkboxes-margins } / #{$fcm_diviseur});
+
+@mixin form_checkboxes {
+    position: relative;
+    width: 2rem;
+    height: 2rem; 
+    opacity: 1;
+    margin: 0;
+    margin-right: $form_checkboxes-size-container;
+    border: none !important;
+    box-shadow: none !important;
+    margin-bottom: $formFields_space;
+
+    // The :before hide the default checkbox
+    &:before {
+        position: absolute;
+        content: '';
+        display: block;
+        top: 50%;
+        left: 0;
+        width: $form_checkboxes-size-container;
+        height: $form_checkboxes-size-container;
+        transform: translate(0,-50%);
+        border: 2px solid $col_primary;
+        border-radius: 5px;
+        background-color: $col_neutral-white;
+        cursor: pointer;
+    }
+    &:after {
+        position: absolute;
+        content: '';
+        display: block;
+        top: 50%;
+        left: calc(50% + #{$form_checkboxes-margin});
+        width: 0px;
+        height: 0px;
+        transform: translate(-50%,-50%);
+        cursor: pointer;
+    }
+
+    &:checked {
+        &:before {
+        }
+        &:after {
+            background-color: $col_primary;
+            width: $form_checkboxes-size-check;
+            height: $form_checkboxes-size-check;
+            border-radius: 0.5rem;
+            @include transition_common-open(0.2s);
+        }
+    }
+}
+
+@mixin form_checkboxes-label {
+    padding-left: 0px;
+    text-indent: 0px;
+    position: relative;
+    display: flex;
+    @include typo_forms-default;
+}

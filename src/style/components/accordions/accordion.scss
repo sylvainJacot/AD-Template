@@ -1,0 +1,69 @@
+//============= Accordion  =============
+//==========================================
+
+.accordion {
+  position: relative;
+  background: $col_primary-10;
+  border-radius: 1rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+
+  @include laptop {
+    @media (hover: hover) {
+      &:hover {
+        background: $col_primary-60;
+      }
+    }
+  }
+
+  .accordion_tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 4rem;
+    .accordion_tab-title {
+      font-size: 2rem;
+      @include Roboto;
+    }
+    *:last-child {
+      span {
+        @include transition_common-close;
+      }
+    }
+  }
+
+  .accordion_content {
+    cursor: default;
+    padding: 0px 4rem 0rem 4rem; 
+    @include transition_accordion-close;
+
+    .accordion_content-paragraph {
+      font-size: 2rem;
+      @include Roboto;
+    }
+
+    > * {
+        @include transition_accordion-content-close;
+    }
+  }
+}
+
+.accordion-active {
+  .accordion_tab {
+    *:last-child {
+      span {
+          transform: rotate(90deg);
+          @include transition_common-open;
+      }
+    }
+  }
+
+    .accordion_content {
+        padding: 0px 4rem 3rem 4rem; 
+        @include transition_accordion-open;
+
+        > * {
+            @include transition_accordion-content-open;
+        }
+      }
+}

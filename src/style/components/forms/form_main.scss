@@ -1,0 +1,78 @@
+//============= Forms: Common values =============
+//==========================================
+$formFields_space : 2rem;
+$formFields_paddingY : 2rem;
+$formFields_paddingX : 2rem;
+
+
+@import "./form_typography.scss";
+@import "./form_textfields.scss";
+@import "./form_submit.scss";
+@import "./form_checkboxes.scss";
+@import "./form_select.scss";
+@import "./form_messages.scss";
+
+.frm_form_fields {
+    fieldset {
+        .frm_fields_container {
+            .frm_form_field {
+
+                // Top Titles
+                .frm_primary_label {
+                    @include form_textFields-TopTitle;
+                }
+
+                // Text Fields
+                input {
+                    @include form_textFields-input;
+                    @include form_textFields-input-focus;
+                    padding: $formFields_paddingY $formFields_paddingX;
+                }
+                textarea {
+                    @include form_textFields-textarea;
+                    @include form_textFields-input-focus;
+                    padding: $formFields_paddingY $formFields_paddingX;
+                }
+                // Placeholders
+                input::placeholder,textarea::placeholder {
+                    @include form_textFields-placeholder;
+                }
+                // Placeholders
+                select {
+                    @include form_textFields-input;
+                    padding: $formFields_paddingY $formFields_paddingX;
+                }
+
+                // Sub Titles
+                div.frm_description {
+                    @include form_textFields-SubTitle;
+                    position: absolute;
+                    transform: translateY(-$formFields_space);
+                }
+
+                //Chekcboxes
+                .frm_checkbox {
+                    label {
+                        @include form_checkboxes-label;
+                        input[type=checkbox] {
+                            @include form_checkboxes;
+                        }
+                    }
+                }
+             
+            }
+            .frm_submit {
+                margin: auto;
+                .frm_button_submit {
+                    @include form_button-submit; 
+                 }
+            }
+
+            // CUSTOM Subtitle
+            .form_subtitle {
+            @include form_subtitle;
+              }
+        }
+    }
+}
+

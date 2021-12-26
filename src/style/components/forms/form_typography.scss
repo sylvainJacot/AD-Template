@@ -1,0 +1,39 @@
+//============= Forms: Typography // Top Title =============
+//==========================================
+
+@mixin form_textFields-TopTitle {
+    @include typo_forms-subtitle;
+    margin-bottom: $formFields_space;
+}
+
+//============= Forms: Typography // Placeholder =============
+//==========================================
+
+@mixin form_textFields-placeholder{
+    @include typo_forms-default;
+    color: $col_primary-60;
+}
+
+//============= Forms: Typography // Placeholder =============
+//==========================================
+
+@mixin form_textFields-input-focus{
+    @include typo_forms-default;
+    color: $col_primary;
+}
+
+//============= Forms: Typography // Sub Title =============
+//==========================================
+
+@mixin form_textFields-SubTitle {
+    @include typo_forms-subtext;
+}
+
+
+//============= Forms: Typography // Custom form subtitle =============
+//==========================================
+@mixin form_subtitle {
+    p {
+        @include typo_forms-subtitle;
+    }
+}

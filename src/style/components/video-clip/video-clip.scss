@@ -1,0 +1,41 @@
+.video-clip {
+    display: block;
+    width:  100vw;
+    height: 100vh;
+    position: fixed;
+}
+/*.object-fit .video-clip {
+    object-fit: cover;
+    left: 0;
+    top: 0;
+}*/
+/*.no-object-fit*/ .video-clip {
+    min-width:  100%;
+    min-height: 100%;
+    width:  auto;
+    height: auto;
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.video-clip {
+  opacity: 1;
+  transition: opacity 1s;
+  z-index: 2;
+}
+.video-clip.fade-out {
+  opacity: 0;
+}
+.video-clip.zindex {
+  opacity: 1;
+  z-index: 1;
+}
+
+.video-cont .videoOverlay {
+  background: #333; 
+}
+.videoOverlay img {
+  opacity: 0; 
+  visibility: hidden; 
+}

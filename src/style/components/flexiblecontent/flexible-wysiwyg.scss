@@ -1,0 +1,48 @@
+.wysiwyg-wrapper {
+   // Introduction
+   h6 {
+    @include typo_flexible-introduction;
+   }
+   // Heading 1
+   h3 {
+    @include typo_flexible-heading1;
+   }
+   // Heading 2
+   h4 {
+    @include typo_flexible-heading2;
+    }
+   // Heading 3
+   h5 {
+    @include typo_flexible-heading3;
+    }   
+   // Paragraph
+    p {
+    @include typo_flexible-paragraph;
+    }
+   // Paragraph bold
+   p {
+        strong {
+            @include typo_flexible-paragraphbold;
+        }
+    }
+   // Unordered list
+   ul {
+       li {
+        @include typo_flexible-unorderedlist-item;
+       }
+   }
+
+   // Ordered list
+   ol {
+    li {
+        @include typo_flexible-orderedlist-item;
+    }
+}
+
+   // Link
+   p {
+    a {
+        @include typo_flexible-link;
+    }
+}
+}

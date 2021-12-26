@@ -1,0 +1,19 @@
+@mixin custom_scrollbar {
+    &::-webkit-scrollbar {
+        width:1rem;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background-color: $col_primary-10;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        border-radius: 2rem;
+        background-color: $col_primary-50;
+    }
+    }
+    
+    html {
+        @include custom_scrollbar;
+        overflow-y: scroll;
+    }

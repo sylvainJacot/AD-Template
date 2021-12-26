@@ -1,0 +1,40 @@
+//============= Transitions : Common transitions =============
+//==========================================
+@mixin transition_common-open($duration:0.3s) {
+    transition: all $duration ease(out-cubic);
+}
+
+@mixin transition_common-close($duration:0.2s) {
+    transition: all $duration ease(out-cubic);
+}
+
+//============= Transitions : Accordion effect =============
+//==========================================
+
+@mixin transition_accordion-open {
+    height: auto;
+    transform-origin: top;
+    transform: scaleY(1) translateY(0px);
+    transition: all 0.2s ease(out-cubic);
+}
+
+@mixin transition_accordion-close {
+    height: 0px;
+    transform-origin: top;
+    transform: scaleY(0) translateY(0px);
+    transition: all 0.3s ease(out-cubic);  
+}
+
+@mixin transition_accordion-content-close{
+    transform-origin: top;
+    opacity: 0;
+    transition: opacity 0.0s ease-out;
+    transform: translateY(0px) scaleY(1);
+}
+
+@mixin transition_accordion-content-open {
+    transform-origin: top;
+    transform: translateY(0px) scaleY(1);
+    opacity: 1;
+    transition: transform 0.1s ease-out 0.1s, opacity 0.25s linear ;
+}

@@ -1,0 +1,12 @@
+.frm_message {
+    background: $col_semantic-success-10 !important;
+    @include typo_forms-messages;
+    color: $col_semantic-success !important;
+}
+
+.frm_error_style {
+    background: $col_semantic-error-10 !important;
+    @include typo_forms-messages;
+    color: $col_semantic-error !important;
+
+}
