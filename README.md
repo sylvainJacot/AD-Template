@@ -1,10 +1,15 @@
 # Ad Template
 
 ## To install modules : 
-``npm install`` 
+```bash
+npm install
+```
+
 
 ## To start compiling
-``npm dev`` 
+```bash
+npm dev
+```
 
 ### Personnal token for this repo :
 ``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``
