@@ -9,7 +9,7 @@ $l-col-count:23;
 $t-col-count:17;
 $m-col-count:11;
 
-$dCol: 48px;
+$dCol: 56px;
 $lCol: 40px; 
 $tCol: 40px;
 $mCol: 7.8vw;
@@ -23,6 +23,44 @@ $mGridMargin : calc((100vw - #{$m-grid-size}) / 2);
 $tGridMargin : calc((100vw - #{$t-grid-size}) / 2);
 $lGridMargin : calc((100vw - #{$l-grid-size}) / 2);
 $dGridMargin : calc((100vw - #{$d-grid-size}) / 2);
+
+$mGridMarginNeg : calc((100vw - #{$m-grid-size}) / -2);
+$tGridMarginNeg : calc((100vw - #{$t-grid-size}) / -2);
+$lGridMarginNeg : calc((100vw - #{$l-grid-size}) / -2);
+$dGridMarginNeg : calc((100vw - #{$d-grid-size}) / -2);
+
+
+.fullV-m {
+    width: 100vw;
+}
+.fullV-t {
+    @include tablet {
+        width: 100vw;
+    }
+}
+.fullV-l {
+    @include laptop {
+        width: 100vw;
+    }
+}
+.fullV-d {
+    @include tablet {
+        width: 100vw;
+    }
+}
+
+.mCol-full {
+    width: $m-grid-size;
+}
+.tCol-full {
+    width: $t-grid-size;
+}
+.lCol-full {
+    width: $l-grid-size;
+}
+.dCol-full {
+    width: $d-grid-size;
+}
 
 
 
@@ -39,6 +77,7 @@ $dGridMargin : calc((100vw - #{$d-grid-size}) / 2);
 }
 
 @for $i from 1 through $t-col-count {
+    @include tablet {
     .tCol-#{$i} {
         width: #{$i*$tCol};
     }
@@ -49,8 +88,10 @@ $dGridMargin : calc((100vw - #{$d-grid-size}) / 2);
         margin-right: #{$i*$tCol};
     }
 }
+}
 
 @for $i from 1 through $l-col-count {
+    @include laptop {
     .lCol-#{$i} {
         width: #{$i*$lCol};
     }
@@ -61,8 +102,10 @@ $dGridMargin : calc((100vw - #{$d-grid-size}) / 2);
         margin-right: #{$i*$lCol};
     }
 }
+}
 
 @for $i from 1 through $d-col-count {
+    @include desktop {
     .dCol-#{$i} {
         width: #{$i*$dCol};
     }
@@ -73,130 +116,56 @@ $dGridMargin : calc((100vw - #{$d-grid-size}) / 2);
         margin-right: #{$i*$dCol};
     }
 }
+}
 
 
 @mixin grid {
+    position: relative;
+    margin: 0 auto;
+    width: $m-grid-size;
+    // max-width: 440px;
+
+    @include tablet {
+        width: $t-grid-size;
+        max-width: unset;
+    }
+
+    @include laptop {
+        width: $l-grid-size;
+        max-width: unset;
+    }
+    @include desktop {
+        width: $d-grid-size;
+        max-width: unset;
+    }
+}
+
+@mixin grid-helper {
     display: grid;
     margin: auto;
     grid-template-rows: auto;
     width: $m-col-count * $mCol;
     grid-template-columns: repeat(#{$m-col-count}, $mCol);
 
-    @for $i from 1 through $m-col-count {
-        > .mCol-#{$i} {
-            grid-column: auto / span #{$i};
-            // grid-template-columns: subgrid;
-
-            // .mCol-#{$i} {
-            //     grid-column: auto / span #{$i};
-            // }
-        }
-    }
-
     @include tablet {
         width: $t-col-count * $tCol;
         grid-template-columns: repeat(#{$t-col-count}, $tCol);
-
-        @for $i from 1 through $t-col-count {
-            > .tCol-#{$i} {
-                grid-column: auto / span #{$i};
-                // grid-template-columns: subgrid;
-
-                // .tCol-#{$i} {
-                //     grid-column: auto / span #{$i};
-                // }
-            }
-        }
-
     }
     @include laptop {
         width: $l-col-count * $lCol;
         grid-template-columns: repeat(#{$l-col-count}, $lCol);
-
-        @for $i from 1 through $l-col-count {
-            > .lCol-#{$i} {
-                grid-column: auto / span #{$i};
-                // grid-template-columns: subgrid;
-
-                // .lCol-#{$i} {
-                //     grid-column: auto / span #{$i};
-                // }
-            }
-        }
     }
     @include desktop {
         width: $d-col-count * $dCol;
         grid-template-columns: repeat(#{$d-col-count}, $dCol);
-
-        @for $i from 1 through $d-col-count {
-            > .dCol-#{$i} {
-                grid-column: auto / span #{$i};
-                // grid-template-columns: subgrid;
-
-                // .dCol-#{$i} {
-                //     grid-column: auto / span #{$i};
-                // }
-            }
-        }
     }
 
 }
 
+
 .grid {
     @include grid;
 }
-
-
-/* ------------------------------------------------------------------------------------------ */
-/* ------------------------------------------------------------------------------------------ */
-/*  -   GRID ALIGN EL
-/* ------------------------------------------------------------------------------------------ */
-/* ------------------------------------------------------------------------------------------ */
-
-@mixin grid-flex-center {
-    display: flex;
-    justify-content: center;
-}
-
-@mixin grid-flex-right {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.center {
-    @include grid-flex-center;
-}
-.center-t {
-    @include tablet {
-        @include grid-flex-center;
-    }   
-}
-.center-l {
-    @include laptop {
-        @include grid-flex-center;
-    }   
-}
-.center-d {
-    @include desktop {
-        @include grid-flex-center;
-    }   
-}
-
-.right {
-    @include grid-flex-right;
-}
-.right-t {
-    @include tablet {
-        @include grid-flex-right;
-    }   
-}
-.right-l {
-    @include laptop {
-        @include grid-flex-right;
-    }   
-}
-.right-d {
-    @include desktop {
-        @include grid-flex-right;
-    }   
+.grid-helper {
+    @include grid-helper;
 }
